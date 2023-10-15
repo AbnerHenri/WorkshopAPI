@@ -11,10 +11,12 @@ import java.io.Serializable;
 @Getter @Setter
 public class UserDTO implements Serializable {
 
+    private String id;
     private String name;
     private String email;
 
     public UserDTO(User object){
+        id = object.getId();
         name = object.getName();
         email = object.getEmail();
     }
