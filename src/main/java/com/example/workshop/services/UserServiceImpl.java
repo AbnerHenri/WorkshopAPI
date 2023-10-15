@@ -28,4 +28,17 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    public Boolean addUser(User request){
+        try {
+            if (!request.getName().isEmpty() && !request.getEmail().isEmpty()) {
+                repository.save(request);
+                return true;
+            }
+
+            return false;
+        }catch (NullPointerException e){
+            return false;
+        }
+    }
 }

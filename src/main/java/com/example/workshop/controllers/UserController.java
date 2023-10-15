@@ -5,6 +5,7 @@ import com.example.workshop.models.User;
 import com.example.workshop.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +32,14 @@ public class UserController {
         return user != null ?
                 ResponseEntity.status(200).body(user) :
                 ResponseEntity.status(400).build();
+    }
+
+
+    @PostMapping
+    public ResponseEntity<String> addUser(@RequestBody User user){
+        Boolean validity = service.addUser(user);
+        return validity ?
+                ResponseEntity.status(201).body("Usuário Adicionado") :
+                ResponseEntity.status(400).body("Nenhum campo pode ser vazio");
     }
 }
