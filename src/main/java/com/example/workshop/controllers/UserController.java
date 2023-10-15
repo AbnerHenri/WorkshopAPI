@@ -42,4 +42,12 @@ public class UserController {
                 ResponseEntity.status(201).body("Usuário Adicionado") :
                 ResponseEntity.status(400).body("Nenhum campo pode ser vazio");
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> addUser(@PathVariable String id){
+        Boolean validity = service.deleteUser(id);
+        return validity ?
+                ResponseEntity.status(200).body("Usuário Deletado") :
+                ResponseEntity.status(400).body("Usuário não encontrado");
+    }
 }

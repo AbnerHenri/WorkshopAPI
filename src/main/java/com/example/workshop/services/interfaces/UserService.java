@@ -10,6 +10,6 @@ public interface UserService {
 
     List<User> findAll();
     UserDTO findById(String id);
-
     Boolean addUser(User request);
+    Boolean deleteUser(String id);
 }

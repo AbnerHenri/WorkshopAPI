@@ -41,4 +41,15 @@ public class UserServiceImpl implements UserService {
             return false;
         }
     }
+
+    public Boolean deleteUser(String id){
+        Optional<User> user = repository.findById(id);
+
+        if(user.isEmpty()){
+            return false;
+        }else{
+            repository.deleteById(id);
+            return true;
+        }
+    }
 }
