@@ -52,4 +52,21 @@ public class UserServiceImpl implements UserService {
             return true;
         }
     }
+
+    public Boolean editUser(String id, User request) {
+        Optional<User> user = repository.findById(id);
+
+        if(user.isPresent()){
+
+            user.get().setName(request.getName());
+            user.get().setEmail(request.getEmail());
+
+            repository.save(user.get());
+            return true;
+        }else{
+
+            return false;
+        }
+    }
+
 }

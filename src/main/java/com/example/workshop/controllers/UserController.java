@@ -50,4 +50,12 @@ public class UserController {
                 ResponseEntity.status(200).body("Usuário Deletado") :
                 ResponseEntity.status(400).body("Usuário não encontrado");
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> editUser(@PathVariable String id, @RequestBody User user){
+        Boolean validity = service.editUser(id, user);
+        return validity ?
+                ResponseEntity.status(200).body("Usuário Editado") :
+                ResponseEntity.status(400).body("Usuário não encontrado");
+    }
 }

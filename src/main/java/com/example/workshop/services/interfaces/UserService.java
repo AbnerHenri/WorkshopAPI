@@ -12,4 +12,5 @@ public interface UserService {
     UserDTO findById(String id);
     Boolean addUser(User request);
     Boolean deleteUser(String id);
+    Boolean editUser(String id, User request);
 }
