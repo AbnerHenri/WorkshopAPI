@@ -42,5 +42,11 @@ public class TestConfig implements CommandLineRunner {
         Post post3 = new Post(null, sdf.parse("25/03/2018"), "Bom Tarde", "Curtindo o fim de semana!", new AuthorDTO(alex));
 
         postRepository.saveAll(Arrays.asList(post1, post2, post3));
+
+        maria.getPosts().addAll(Arrays.asList(post1, post2));
+        userRepository.save(maria);
+
+        alex.getPosts().add(post3);
+        userRepository.save(alex);
     }
 }
