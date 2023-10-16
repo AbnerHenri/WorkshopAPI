@@ -1,5 +1,6 @@
 package com.example.workshop.models;
 
+import com.example.workshop.dto.AuthorDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +23,5 @@ public class Post {
     private Date date;
     private String title;
     private String body;
-    private User author;
+    private AuthorDTO author;
 }
